@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/icon.svg" type="image/x-icon">
+    <title>mo/portfolio</title>
+</head>
+
+<body>
+    <div class="portfolio-item-show"></div>
+    <div class="move-top">YUKARI</div>
+    <div class="portfolio-container">
+        <div class="portfolio-nav">
+            <ul class="portfolio-nav-links-container" style="display: flex; justify-content: left;">
+                <li><a href="index.html" class="portfolio-nav-links" style="margin-left: 0;">home</a></li>
+                <li><a href="about-me.html" class="portfolio-nav-links">about-me</a></li>
+                <li><a href="portfolio.html" class="portfolio-nav-links" style="opacity: 1;">portfolio</a></li>
+                <li><a href="contact-me.html" class="portfolio-nav-links">contact-me</a></li>
+            </ul>
+            <!-- <div class="portfolio-social-icons-container">
+                <a class="portfolio-social-icons" href="https://medium.com/@mehmetoztokay" target="_blank"><img
+                        src="images/medium-b.png" alt=""></a>
+                <a class="portfolio-social-icons" href="https://github.com/mehmetoztokay" target="_blank"><img
+                        src="images/github-b.png" alt=""></a>
+                <a class="portfolio-social-icons" href="https://dribbble.com/mehmetoztokay" target="_blank"><img
+                        src="images/dribbble-b.png" alt=""></a>
+                <a class="portfolio-social-icons" href="https://www.behance.net/mehmetoztokay" target="_blank"><img
+                        src="images/behance-b.png" alt=""></a>
+            </div> -->
+        </div>
+        <div class="portfolio-nav-links-border"></div>
+        <ul class="portfolio-filter-links-container">
+            <li class="portfolio-filter-links portfolio-filter-links-active" data-target="all">all</li>
+            <li class="portfolio-filter-links" data-target="web">web</li>
+            <li class="portfolio-filter-links" data-target="campaign">campaign</li>
+            <li class="portfolio-filter-links" data-target="infographic">infographic</li>
+            <li class="portfolio-filter-links" data-target="photography">photography</li>
+        </ul>
+        <div class="portfolio-items-container">
+        </div>
+    </div>
+
+
+    <script src="portfolio-script.js"></script>
+    <script>
+
+        window.onscroll = function () {
+            var moveTop = document.querySelector('.move-top');
+            if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+                moveTop.style.display = "block";
+                moveTop.addEventListener('click', () => {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                })
+            } else {
+                moveTop.style.display = "none";
+            }
+        }
+
+        if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+            console.log('selam')
+        }
+
+    </script>
+</body>
+
+</html>
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../images/icon.svg" type="image/x-icon">
+    <title>mo/add-project</title>
+</head>
+
+<body>
+    <div class="add-project-container">
+        <span class="add-project-title">//Proje Ekle</span>
+        <span class="add-project-title-low">add project</span>
+        <form action="" class="add-project-panel-form">
+            <span class="add-project-id">project id : 5</span>
+            <div class="panel-inputs add-project-inputs">
+                <input type="text" class="panel-input add-project-input-project-area">
+                <span class="panel-inputs-text">area</span>
+                <div class="panel-inputs-border"></div>
+            </div>
+            <div class="panel-inputs add-project-inputs">
+                <input type="text" class="panel-input add-project-input-project-title">
+                <span class="panel-inputs-text">title</span>
+                <div class="panel-inputs-border"></div>
+            </div>
+            <div class="panel-inputs add-project-inputs">
+                <input type="text" class="panel-input add-project-input-project-director">
+                <span class="panel-inputs-text">director</span>
+                <div class="panel-inputs-border"></div>
+            </div>
+            <div class="panel-inputs add-project-inputs">
+                <input type="text" class="panel-input add-project-input-project-area">
+                <span class="panel-inputs-text">author</span>
+                <div class="panel-inputs-border"></div>
+            </div>
+            <div class="panel-inputs add-project-inputs">
+                <input type="date" class="panel-input add-project-input-project-release-date">
+                <span class="panel-inputs-text">release date</span>
+                <div class="panel-inputs-border"></div>
+            </div>
+            <div class="panel-inputs add-project-inputs">
+                <input type="text" class="panel-input add-project-input-project-presentation">
+                <span class="panel-inputs-text">presentation</span>
+                <div class="panel-inputs-border"></div>
+            </div>
+            <div class="panel-inputs add-project-inputs">
+                <input type="text" class="panel-input add-project-input-project-presentation">
+                <span class="panel-inputs-text">hashtags</span>
+                <div class="panel-inputs-border"></div>
+            </div>
+            <div class="panel-inputs add-project-inputs">
+                <input type="text" class="panel-input add-project-input-project-filter">
+                <span class="panel-inputs-text">project-filter <i style="font-size:.7em;">(web,campain,photography)</i></span>
+                <div class="panel-inputs-border"></div>
+            </div>
+            <div class="add-project-description-container">
+                <span class="add-project-input-title">project desc</span>
+                <textarea name="" id="" cols="30" rows="10" class="add-project-description"></textarea>
+            </div>
+            <div class="add-elements add-project-add-show-pic">
+                <span class="add-project-elements-buttons add-project-elements-buttons-active add-project-elements-button-add-pic">add show pic</span>
+                <p class="add-project-elements-info add-project-elements-info-add-pic"></p>
+            </div>
+            <div class="add-elements add-project-add-logo">
+                <span class="add-project-elements-buttons add-project-elements-buttons-unactive add-project-elements-button-add-pic">add logo</span>
+                <p class="add-project-elements-info add-project-elements-info-add-pic">mural-bir.jpg</p>
+            </div>
+            <div class="add-elements add-project-add-logo">
+                <span class="add-project-elements-buttons add-project-elements-buttons-unactive add-project-elements-button-add-pic">add project pics</span>
+                <p class="add-project-elements-info add-project-elements-info-add-pic">mural-bir.jpg, mural-bir.jpg, mural-bir.jpg,</p>
+            </div>
+
+
+
+
+        </form>
+
+    </div>
+    <script>
+        var dateRelease = document.querySelector('.add-project-input-project-release-date');
+        var projectDesc = document.querySelector('.add-project-description');
+        dateRelease.valueAsDate = new Date();
+        if (projectDesc) {
+            projectDesc.addEventListener('focus', () => {
+                projectDesc.previousElementSibling.classList.add('active');
+            });
+            projectDesc.addEventListener('blur', () => {
+                if (projectDesc.value == "") {
+                    projectDesc.previousElementSibling.classList.remove('active');
+                }
+            });
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+    <script>
+        var panelInputs = document.querySelectorAll('.panel-inputs');
+        var panelForm = document.querySelector('.panel-form');
+        panelInputs.forEach((item) => {
+            if (item.children[0].value !== "") {
+                item.children[1].classList.add('panel-inputs-text-active');
+            }
+            item.children[0].addEventListener('focus', () => {
+                item.children[1].classList.add('panel-inputs-text-active');
+            });
+            item.children[0].addEventListener('blur', () => {
+                if (item.children[0].value == "") {
+                    item.children[1].classList.remove('panel-inputs-text-active');
+                }
+            })
+
+
+        })
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../images/icon.svg" type="image/x-icon">
+    <title>mo/panel</title>
+</head>
+
+<body>
+    <div class="panel-container">
+        <span class="panel-head">//panel</span>
+        <form action="" class="panel-form">
+            <div class="panel-inputs panel-index-inputs">
+                <input type="text" class="panel-input panel-index-input-id">
+                <span class="panel-inputs-text ">id</span>
+                <div class="panel-inputs-border"></div>
+            </div>
+            <div class="panel-inputs panel-index-inputs">
+                <input type="password" class="panel-input panel-index-input-pass">
+                <span class="panel-inputs-text">pass</span>
+                <div class="panel-inputs-border"></div>
+            </div>
+            <span class="panel-info">"</span>
+            <button class="button-panel-enter" type="submit">enter</button>
+    </div>
+    </form>
+    </div>
+
+
+
+    <script>
+        var panelInputs = document.querySelectorAll('.panel-inputs');
+        var panelEnterButton = document.querySelector('.button-panel-enter');
+        var panelForm = document.querySelector('.panel-form');
+        panelInputs.forEach((item) => {
+            if (item.children[0].value !== "") {
+                item.children[1].classList.add('panel-inputs-text-active');
+                panelEnterButton.style.display = 'block';
+            }
+            item.children[0].addEventListener('focus', () => {
+                item.children[1].classList.add('panel-inputs-text-active');
+            });
+            item.children[0].addEventListener('blur', () => {
+                if (item.children[0].value == "") {
+                    item.children[1].classList.remove('panel-inputs-text-active');
+                } else {
+                    panelEnterButton.style.display = 'block';
+
+                }
+            })
+
+
+        })
+        panelForm.addEventListener('submit', (e) => {
+            var panelInput = document.querySelectorAll('.panel-input');
+            var panelInfo = document.querySelector('.panel-info');
+            var adminPanelEntering = {
+                id: 'admin',
+                pass: '1234'
+            };
+            if (panelInput[0].value == adminPanelEntering.id && panelInput[1].value == adminPanelEntering.pass) {
+                panelInfo.style.visibility = 'visible';
+                panelInfo.textContent = "Giriş başarılı, yönlendiriliyorsunuz...";
+                setTimeout(() => {
+                    window.location.href = 'projects.html';
+                }, 2000)
+            } else if (panelInput[0].value == "" || panelInput[1].value == "") {
+                panelInfo.style.visibility = 'visible';
+                panelInfo.textContent = "İstenen bilgileri doldurmalısınız.";
+            } else {
+                panelInfo.style.visibility = 'visible';
+                panelInfo.textContent = "Hatalı bilgi girişi.";
+            }
+            e.preventDefault();
+        })
+    </script>
+
+</body>
+
+</html>

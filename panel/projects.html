@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../images/icon.svg" type="image/x-icon">
+    <title>mo/panel</title>
+</head>
+
+<body>
+    <div class="panel-projects-container">
+        <span class="panel-projects-title">//projects</span>
+        <div class="panel-projects-add-buttons-container">
+            <a href="add-project.html" class="panel-projects-add-button">add project</a>
+            <a href="add-project.html" class="panel-projects-add-button">add pic</a>
+        </div>
+        <table class="panel-projects-show" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <td>id</td>
+                    <td>class</td>
+                    <td>name</td>
+                    <td>head</td>
+                    <td>pic</td>
+                    <td colspan="3"></td>
+                </tr>
+                <tr>
+                    <td colspan="100%">
+                        <div class="panel-projects-hr"></div>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="panel-projects-show-tr">
+                    <td class="panel-projects-show-td">1</td>
+                    <td class="panel-projects-show-td">Mural</td>
+                    <td class="panel-projects-show-td">Mural Festivali</td>
+                    <td class="panel-projects-show-td">Mural İstanbul</td>
+                    <td class="panel-projects-show-img"><img src="../images/works/campain/campain-anadolu-rock.png"
+                            alt=""></td>
+                    <td class="panel-projects-show-icons"><a href="#"><img class="panel-projects-show-icon-delete"
+                                src="../images/icons/delete-icon.svg" alt=""></a></td>
+                    <td class="panel-projects-show-icons"><a href="#"><img class="panel-projects-show-icon-edit"
+                                src="../images/icons/edit-icon.svg" alt=""></a></td>
+                    <td class="panel-projects-show-icons"><a href="#"><img class="panel-projects-show-icon-show-hide"
+                                src="../images/icons/show-icon.svg" alt=""></a></td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+
+
+
+    <script>
+        var projectsIcons = document.querySelectorAll('.panel-projects-show-icon-show-hide');
+
+        projectsIcons.forEach((item) => {
+            item.addEventListener('click', () => {
+                if (item.getAttribute('src') == '../images/icons/hide-icon.svg') {
+                    item.setAttribute('src', '../images/icons/show-icon.svg');
+                } else {
+                    item.setAttribute('src', '../images/icons/hide-icon.svg');
+                }
+            })
+
+        })
+    </script>
+</body>
+
+</html>

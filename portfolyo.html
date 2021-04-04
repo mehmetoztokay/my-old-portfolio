@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>mo//portfolyo</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+    <style>
+        /* Style the Image Used to Trigger the Modal */
+        .myImg {
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.9);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content (Image) */
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            margin-bottom: 2rem;
+        }
+
+
+
+        /* Caption of Modal Image (Image Text) - Same Width as the Image */
+        .caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            margin-top: 1rem;
+            font-size: 1.3rem;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            margin-bottom: 1rem;
+        }
+
+        /* Add Animation - Zoom in the Modal */
+        .modal-content,
+        .caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        /* The Close Button */
+        .close {
+            position: fixed;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            background-color: rgba(0, 0, 0, .3);
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #B5144E;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* 100% Image Width on Smaller Screens */
+        @media only screen and (max-width: 700px) {
+            .modal-content {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn menu-links" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a class="menu-links" href="index.html">//giris</a>
+            <a class="menu-links" href="hakkimda.html">//hakkimda</a>
+            <a class="menu-links" href="portfolyo.html">//portfolyo</a>
+            <a class="menu-links" href="contact-me.html">//contact me</a>
+            <a class="nav-logos" href="https://medium.com/@mehmetoztokay" target="_blank"><img src="images/medium.png"
+                    alt=""></a>
+            <a class="nav-logos" href="https://github.com/mehmetoztokay" target="_blank"><img src="images/github.png"
+                    alt=""></a>
+            <a class="nav-logos" href="https://dribbble.com/mehmetoztokay" target="_blank"><img
+                    src="images/dribbble.png" alt=""></a>
+            <a class="nav-logos" href="https://www.behance.net/mehmetoztokay" target="_blank"><img
+                    src="images/behance.png" alt=""></a>
+            <!-- <a class="nav-logos" href="https://soundcloud.com/mehmetoztokay" target="_blank"><img
+                    src="images/sound-cloud.png" alt=""></a> -->
+
+        </div>
+
+    </div>
+    <div class="portfolyo-container">
+
+        <div class="portfolyo-menus clearfix">
+            <div class="portfolyo-links">
+                <a href="#" class="portfolyo-title-link" onclick="openNav()">//</a>
+                <ul class="portfolyo-links-none">
+                    <li><a href="index.html" class="portfolyo-links-a">index</a></li>
+                    <li><a href="hakkimda.html" class="portfolyo-links-a">hakkimda</a></li>
+                    <li><a href="portfolyo.html" class="portfolyo-links-a" style="opacity: 1;">portfolyo</a></li>
+                    <li><a href="contact-me.html" class="portfolyo-links-a">contact</a></li>
+                </ul>
+            </div>
+            <div class="portfolyo-logos-body">
+                <a class="portfolyo-logos" href="https://medium.com/@mehmetoztokay" target="_blank"><img
+                        src="images/medium-b.png" alt=""></a>
+                <a class="portfolyo-logos" href="https://github.com/mehmetoztokay" target="_blank"><img
+                        src="images/github-b.png" alt=""></a>
+                <a class="portfolyo-logos" href="https://dribbble.com/mehmetoztokay" target="_blank"><img
+                        src="images/dribbble-b.png" alt=""></a>
+                <a class="portfolyo-logos" href="https://www.behance.net/mehmetoztokay" target="_blank"><img
+                        src="images/behance-b.png" alt=""></a>
+                <!-- <a class="portfolyo-logos" href="https://soundcloud.com/mehmetoztokay" target="_blank"><img
+                        src="images/sound-cloud-b.png" alt=""></a> -->
+            </div>
+        </div>
+        <hr class="portfolyo-cizgi">
+        <ul class="portfolyo-filter" id="portfolyo-filter-buttons">
+            <li data-target="selam" class="active">tüm</li>
+            <li data-target="web">web</li>
+            <li data-target="reklam">reklam</li>
+            <li data-target="info">infografik</li>
+        </ul>
+        <div class="row clearfix">
+            <div class="column">
+                <div class="img-info" data-id="reklam"><img class="myImg" src="images/works/reklam-danone-1.png">
+                    <div class="overlays2">Reklam Grafiği / 2019</div>
+                    <!-- <div class="model-info">
+                        <table cellspacing="10px" cellpadding="5px" class="model-info-table">
+
+                            <tr>
+                                <td>//</td>
+                                <td style="border-left:  1px solid #C6C5C5;">//</td>
+                                <td style="border-left:  1px solid #C6C5C5;">//</td>
+                            </tr>
+                        </table>
+                    </div> -->
+
+                </div>
+                <div class="img-info" data-id="web"><img class="myImg" src="images/works/web-oyuncak-2.png">
+                    <div class="overlays2">Web / 2019</div>
+                </div>
+                <div class="img-info" data-id="reklam"><img class="myImg" src="images/works/reklam-jaz.png">
+                    <div class="overlays2">Reklam Grafiği / 2019</div>
+                </div>
+                <div class="img-info" data-id="web"><img class="myImg" src="images/works/web-oyuncak-4.png">
+                    <div class="overlays2">Web / 2019</div>
+                </div>
+                <div class="img-info" data-id="web"><img class="myImg" src="images/works/web-fsm-2.png">
+                    <div class="overlays2">Web / 2019</div>
+                </div>
+                <div class="img-info" data-id="web"><img class="myImg" src="images/works/web-oyuncak-6.png">
+                    <div class="overlays2">Web / 2019</div>
+                </div>
+                <div class="img-info" data-id="web"><img class="myImg" src="images/works/web-fsm-4.png">
+                    <div class="overlays2">Web / 2019</div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="img-info" data-id="reklam"><img class="myImg" src="images/works/reklam-anadolu-rock.png">
+                    <div class="overlays2">Reklam Grafiği / 2019</div>
+                </div>
+                <div class="img-info" data-id="reklam"><img class="myImg" src="images/works/reklam-bonibon-2.png">
+                    <div class="overlays2">Reklam Grafiği / 2019</div>
+                </div>
+                <div class="img-info" data-id="reklam"><img class="myImg" src="images/works/reklam-bonibon.png">
+                    <div class="overlays2">Reklam Grafiği / 2019</div>
+                </div>
+                <div class="img-info" data-id="reklam"><img class="myImg" src="images/works/reklam-bonibon-3.png">
+                    <div class="overlays2">Reklam Grafiği / 2019</div>
+                </div>
+                <div class="img-info" data-id="reklam"><img class="myImg" src="images/works/reklam-camlica.png">
+                    <div class="overlays2">Reklam Grafiği / 2019</div>
+                </div>
+                <div class="img-info" data-id="web"><img class="myImg" src="images/works/web-oyuncak-5.png">
+                    <div class="overlays2">Web / 2019</div>
+                </div>
+                <div class="img-info" data-id="web"><img class="myImg" src="images/works/web-oyuncak-1.png">
+                    <div class="overlays2">Web / 2019</div>
+                </div>
+                <div class="img-info" data-id="info"><img class="myImg" src="images/works/info-boks.png">
+                    <div class="overlays2">İnfografik / 2019</div>
+                </div>
+
+            </div>
+            <div class="column">
+                <div class="img-info" data-id="web"><img class="myImg" src="images/works/web-oyuncak-8.png">
+                    <div class="overlays2">Web / 2019</div>
+                </div>
+                <div class="img-info" data-id="web"><img class="myImg" src="images/works/web-oyuncak-9.png">
+                    <div class="overlays2">Web / 2019</div>
+                </div>
+                <div class="img-info" data-id="reklam"><img class="myImg" src="images/works/tipografi.png">
+                    <div class="overlays2">Tipografi / 2019</div>
+                </div>
+                <div class="img-info" data-id="reklam"><img class="myImg" src="images/works/tanitim-jbl.png">
+                    <div class="overlays2">Tanıtım / 2019</div>
+                </div>
+                <div class="img-info" data-id="reklam"><img class="myImg" src="images/works/tanitim-monster.png">
+                    <div class="overlays2">Tanıtım / 2019</div>
+                </div>
+                <div class="img-info" data-id="reklam"><img class="myImg" src="images/works/tanitim-yvesrocher.png">
+                    <div class="overlays2">Tanıtım / 2019</div>
+                </div>
+                <div class="img-info" data-id="web"><img class="myImg" src="images/works/web-fsm-3.png">
+                    <div class="overlays2">Web / 2019</div>
+                </div>
+                <div class="img-info" data-id="info"><img class="myImg" src="images/works/info-deprem.png">
+                    <div class="overlays2">infografik / 2019</div>
+                </div>
+
+            </div>
+            <div class="column">
+                <div class="img-info" data-id="web"><img class="myImg" src="images/works/web-oyuncak-1.png">
+                    <div class="overlays2">Web / 2019</div>
+                </div>
+                <div class="img-info" data-id="reklam"><img class="myImg" src="images/works/reklam-danone-2.png">
+                    <div class="overlays2">Reklam Grafiği / 2019</div>
+                </div>
+                <div class="img-info" data-id="web"><img class="myImg" src="images/works/web-oyuncak-3.png">
+                    <div class="overlays2">Web / 2019</div>
+                </div>
+                <div class="img-info" data-id="reklam"><img class="myImg" src="images/works/reklam-gmk.png">
+                    <div class="overlays2">Reklam Grafiği / 2019</div>
+                </div>
+                <div class="img-info" data-id="reklam"><img class="myImg" src="images/works/reklam-jaz.png">
+                    <div class="overlays2">Reklam Grafiği / 2019</div>
+                </div>
+                <div class="img-info" data-id="reklam"><img class="myImg" src="images/works/reklam-mural.png">
+                    <div class="overlays2">Reklam Grafiği / 2019</div>
+                </div>
+                <div class="img-info" data-id="reklam"><img class="myImg" src="images/works/reklam-yatas.png">
+                    <div class="overlays2">Reklam Grafiği / 2019</div>
+                </div>
+
+                <div class="img-info" data-id="web"><img class="myImg" src="images/works/web-fsm-1.png">
+                    <div class="overlays2">Web / 2019</div>
+                </div>
+
+            </div>
+        </div>
+        <div style="margin-top: 5rem; padding-bottom: 5rem;">
+            <a href="#" class="portfolyo-title-link"
+                style=" display: block;margin-top: 15rem; float: none; margin: auto; width: max-content; height: max-content;"
+                onclick="openNav()">
+                //
+            </a>
+        </div>
+
+    </div>
+    <div onclick="topFunction()" id="myBtn" title="Üste Çık"><span id="myBtn2"
+            style="font-size: 3.5rem; font-weight: 500; ">^</span><span class="mybtn-text"
+            style="opacity: .7; font-weight: 500; line-height: 1rem; padding-bottom: 2rem;">YUKARI</span>
+    </div>
+
+
+
+
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+
+
+        <!-- Modal Caption (Image Text) -->
+        <div class="caption">//mehmetoztokayy</div>
+    </div>
+
+    <!-- Filtering -->
+    <script>
+        var filterButtons = document.querySelector('#portfolyo-filter-buttons').children;
+        const imgInfos = document.querySelectorAll(".img-info");
+
+
+        for (let b = 0; b < filterButtons.length; b++) {
+            filterButtons[b].addEventListener("click", function () {
+                for (let j = 0; j < filterButtons.length; j++) {
+                    filterButtons[j].classList.remove("active");
+                }
+                this.classList.add("active");
+                const target = this.getAttribute("data-target");
+                for (let e = 0; e < imgInfos.length; e++) {
+                    imgInfos[e].style.display = "none";
+
+                    if (imgInfos[e].getAttribute("data-id") == target) {
+                        imgInfos[e].style.display = "block";
+                    }
+                    if (target == "selam") {
+                        imgInfos[e].style.display = "block";
+                    }
+
+                }
+            });
+        }
+
+
+
+    </script>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.querySelectorAll(".myImg");
+        var modelInfo = document.querySelectorAll(".model-info");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.querySelectorAll(".caption");
+        var buttonTop = document.querySelector("#myBtn");
+        console.log(buttonTop);
+        for (let i = 0; i < img.length; i++) {
+            images = img[i];
+            images.onclick = function () {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+                buttonTop.style.display = "none";
+            }
+        }
+        for (let i = 0; i < modelInfo.length; i++) {
+            var modelInfoAll = modelInfo[i];
+            modal.appendChild(modelInfoAll);
+        }
+
+
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        modal.addEventListener('click', (e) => {
+            if ((e.target.className === 'modal')) {
+                modal.style.display = 'none';
+            }
+        });
+
+
+    </script>
+
+    <script>
+        function openNav(e) {
+            document.getElementById("myNav").style.width = "100%";
+            e.preventDefault();
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+
+    </script>
+
+    <script>
+        //Get the button:
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 1100 || document.documentElement.scrollTop > 1100) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+
+
+        //MYBTN
+        // var mybutton2 = document.getElementById("myBtn2");
+        // var mybtnText = document.querySelector('.mybtn-text');
+        // mybutton2.addEventListener('mouseover', () => {
+        //     mybtnText.style.opacity = '.7';
+        // });
+        // mybutton2.addEventListener('click', () => {
+        //     mybtnText.style.opacity = '.7';
+        // });
+        // mybutton2.addEventListener('mouseout', () => {
+        //     mybtnText.style.opacity = '0';
+        // });
+
+    </script>
+
+
+
+</body>
+
+</html>
